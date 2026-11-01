@@ -9,10 +9,10 @@
       }
     ],
     "Category": "",
-    "Description": "Kasane Teto Splash Screen for for Plasma 6",
-    "Id": "Kasane_Teto_Theme",
+    "Description": "Kasane Teto Splash Screen for Plasma 6",
+    "Id": "KasaneTeto-kde-splash",
     "License": "GPLv2+",
-    "Name": "Kasane_Teto",
+    "Name": "Kasane_Teto_git",
     "Website": "https://github.com/JorgeBackendDev/KasaneTeto-kde-splash?tab=readme-ov-file"
   },
   "Keywords": "Desktop;Workspace;Appearance;Look and Feel;Logout;Lock;Suspend;Shutdown;Hibernate;Teto;Kasane;KasaneTeto;",
