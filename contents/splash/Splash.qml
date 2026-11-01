@@ -22,7 +22,7 @@ import QtQuick.Window 2.2
 
 Rectangle {
     id: root
-    color: "#000"
+    color: '#fafdfd'
 
     Item {
         id: content
@@ -38,7 +38,7 @@ Rectangle {
 
         Rectangle {
 
-            property int sizeAnim: 704
+            anchors.fill: parent
 
             id: imageSource
             width:  sizeAnim
@@ -50,25 +50,26 @@ Rectangle {
 
             AnimatedImage {
                 id: face
+                anchors.fill: parent
+                asynchronous: true
+                fillMode: Image.PreserveAspectCrop
                 source: "images/plasma_d.gif"
                 paused: false
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-                width:  imageSource.sizeAnim
-                height: imageSource.sizeAnim
                 visible: true
+                smooth: false
             }
         }
 
         Image {
             id: busyIndicator
             //in the middle of the remaining space
-            y: parent.height - 150
+            y: parent.height - 100
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.margins: units.gridUnit
+            asynchronous: true
             source: "images/busywidget.svgz"
-            sourceSize.height: units.gridUnit * 2
-            sourceSize.width: units.gridUnit * 2
+            sourceSize.height: units.gridUnit * 4
+            sourceSize.width: units.gridUnit * 4
             RotationAnimator on rotation {
                 id: rotationAnimator
                 from: 0
@@ -89,17 +90,19 @@ Rectangle {
             }
             anchors.horizontalCenter: parent.horizontalCenter
             Text {
-                color: "#eff0f1"
-                // Work around Qt bug where NativeRendering breaks for non-integer scale factors
-                // https://bugreports.qt.io/browse/QTBUG-67007
-                renderType: Screen.devicePixelRatio % 1 !== 0 ? Text.QtRendering : Text.NativeRendering
+                color: '#000000'
                 anchors.verticalCenter: parent.verticalCenter
-                text: "Welcome to TetoPlasma"
+                text: "Welcome to TETOPlasma"
+                font.weight: 800
+                font.pixelSize: 19
+                Accessible.name: text
+                Accessible.role: Accessible.StaticText
             }
             Image {
-                source: "images/kde.svgz"
-                sourceSize.height: units.gridUnit * 2
-                sourceSize.width: units.gridUnit * 2
+                asynchronous: true
+                source: "images/kde.svg"
+                sourceSize.height: Kirigami.Units.gridUnit * 3
+                sourceSize.width: Kirigami.Units.gridUnit * 3
             }
         }
     }
